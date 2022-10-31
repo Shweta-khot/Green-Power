@@ -20,24 +20,28 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Filters() {
+export default function Filters({
+  region,
+  startTime,
+  endTime,
+  startSetter,
+  endSetter,
+}) {
   const classes = useStyles();
-  const [start, setStart] = useState(new Date ().getTime () - (24 * 60 * 60 * 1000))
-  const [end, setEnd] = useState(new Date ())
 
   return (
     <div className={classes.scroll}>
       <Grid container spacing={2} alignContent="center" textAlign="center">
         <Grid xs={12} md={4} marginBottom={2}>
           <FormSelect label="Region" menuId="region_id">
-            <MenuItem value={0}>eastus</MenuItem>
+            <MenuItem value={0}>{region}</MenuItem>
           </FormSelect>
         </Grid>
         <Grid xs={12} md={4} marginBottom={2}>
-          <FormDate label="From Time" value={start} setter={setStart}/>
+          <FormDate label="From Time" value={startTime} setter={startSetter} />
         </Grid>
         <Grid xs={12} md={4}>
-          <FormDate label="To Time" value={end} setter={setEnd}/>
+          <FormDate label="To Time" value={endTime} setter={endSetter} />
         </Grid>
       </Grid>
     </div>

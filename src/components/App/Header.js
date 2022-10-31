@@ -56,10 +56,10 @@ const Header = () => {
       >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <LensIcon
+            {/* <LensIcon
               fontSize="large"
               sx={{ mr: 1, display: "flex", color: "grey.main" }}
-            />
+            /> */}
             <Typography
               variant="largestBold"
               component="a"
