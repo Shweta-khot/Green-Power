@@ -31,7 +31,7 @@ const App = () => {
           <CssBaseline />
           <BrowserRouter>
             <Paper elevation={0} >
-              <Site />
+              <Site  />
             </Paper>
           </BrowserRouter>
         </ThemeProviderNew>
