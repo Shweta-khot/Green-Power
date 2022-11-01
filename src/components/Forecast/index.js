@@ -11,7 +11,7 @@ import { Box, Button, Grid, Paper, Typography, styled } from "@mui/material";
 import axios from "axios";
 
 import Filters from "./Filters";
-import grass from "../../assets/images/grass.jpg"
+import grass from "../../assets/images/grass.jpg";
 
 // Add Local Dependencies
 
@@ -90,7 +90,10 @@ const Forecast = () => {
   }, [hours, region, device]);
 
   useEffect(() => {
-    if (forecastData.value * deviceData.energy <= deviceData.CI * deviceData.energy) {
+    if (
+      forecastData.value * deviceData.energy <=
+      deviceData.CI * deviceData.energy
+    ) {
       setBestTime(
         new Date(forecastData.timestamp).toLocaleString(undefined, {
           timeZone: "Asia/Kolkata",
@@ -102,7 +105,7 @@ const Forecast = () => {
   }, [forecastData]);
 
   return (
-    <Box sx={{margin: "10px"}}>
+    <Box sx={{ margin: "10px" }}>
       <Grid container mt={10}>
         <Grid xs={12}>
           <Item>
@@ -123,11 +126,19 @@ const Forecast = () => {
             alignitems="center"
             sx={{ flexWrap: "wrap" }}
           >
-            <Item sx={{ minWidth: "500px", display: "inline-block" }}>
+            <Item
+              sx={{
+                minWidth: "500px",
+                minHeight: "10rem",
+                display: "inline-block",
+              }}
+            >
               <h2>Device: {deviceData.name}</h2>
               <h2>Carbon Footprint: {deviceData.energy * deviceData.CI}</h2>
             </Item>
-            <Item sx={{ minWidth: "500px", float: "right" }}>
+            <Item
+              sx={{ minWidth: "500px", minHeight: "10rem", float: "right" }}
+            >
               <h2>Best Time: {bestTime}</h2>
             </Item>
           </ChartContainer>
