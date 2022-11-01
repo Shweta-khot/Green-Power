@@ -12,6 +12,7 @@ import axios from "axios";
 
 import Filters from "./Filters";
 import HistoricalData from "./HistoricalData";
+import BestEmissionSection from "./BestEmissionSection";
 import { useEffect } from "react";
 
 // Add Local Dependencies
@@ -49,6 +50,7 @@ const ActualForecast = () => {
   const [region, setRegion] = useState("eastus");
   const [start, setStart] = useState(new Date().getTime() - 6 * 60 * 60 * 1000);
   const [end, setEnd] = useState(new Date());
+  const [bestEmissionData, setBestEmissionData] = useState({});
 
   console.log(new Date().toUTCString());
 
@@ -61,6 +63,13 @@ const ActualForecast = () => {
         `https://carbon-aware-api.azurewebsites.net/emissions/bylocations?location=${region}&time=${newStartTime}&toTime=${newEndTime}`
       )
       .then((res) => setChartData(res.data))
+      .catch((err) => console.error(err));
+
+    axios
+      .get(
+        `https://carbon-aware-api.azurewebsites.net/emissions/bylocations/best?location=${region}&time=${newStartTime}&toTime=${newEndTime}`
+      )
+      .then((res) => setBestEmissionData(res.data[0]))
       .catch((err) => console.error(err));
   }, [region, start, end]);
 
@@ -98,6 +107,9 @@ const ActualForecast = () => {
               Carbon Intensity
             </Typography>
             <HistoricalData chartData={chartData} />
+          </ChartContainer>
+          <ChartContainer>
+            <BestEmissionSection bestEmissionData={bestEmissionData} />
           </ChartContainer>
         </Grid>
       </Grid>
