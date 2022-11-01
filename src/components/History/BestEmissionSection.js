@@ -4,7 +4,9 @@ function BestEmissionSection(props) {
   const date = new Date(props.bestEmissionData.time).toUTCString();
   const emission = Math.round(props.bestEmissionData.rating * 100) / 100;
   const durationArr = props.bestEmissionData.duration?.split(":");
-  const durationStr = `${durationArr[0]}hr ${durationArr[1]}min ${durationArr[2]}s`;
+  const durationStr = durationArr
+    ? `${durationArr[0]}hr ${durationArr[1]}min ${durationArr[2]}s`
+    : null;
 
   return (
     <Typography variant="h3">
