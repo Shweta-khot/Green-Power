@@ -52,7 +52,11 @@ const Header = () => {
     <div>
       <AppBar
         position="static"
-        sx={{ background: "transparent", m: "0px", overflowX: "auto" }}
+        sx={{
+          background: `linear-gradient(135deg, rgba(18,220,0,0.6) 0%, rgba(27,218,239,0.5) 50%, rgba(255,255,255,1) 100%)`,
+          m: "0px",
+          overflowX: "auto",
+        }}
       >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
