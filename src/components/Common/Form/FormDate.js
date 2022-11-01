@@ -21,7 +21,6 @@
          value={props.value}
          onChange={(newValue) => {
           var date = new Date(newValue)
-          console.log(date.toISOString())
            props.setter(newValue);
          }}
          sx={{marginTop: "50px"}}

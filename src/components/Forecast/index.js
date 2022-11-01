@@ -80,7 +80,6 @@ const Forecast = () => {
     const deviceData = devices.filter((d) => d.name === device)[0];
     setDeviceData(deviceData);
     const carbonFootprint = deviceData.CI * deviceData.energy;
-    console.log(carbonFootprint);
 
     axios
       .get(
@@ -91,14 +90,7 @@ const Forecast = () => {
   }, [hours, region, device]);
 
   useEffect(() => {
-    console.log("forecast data changing", forecastData.value);
-    if (forecastData.value <= deviceData.CI * deviceData.energy) {
-      console.log(
-        "best time",
-        new Date(forecastData.timestamp).toLocaleString(undefined, {
-          timeZone: "Asia/Kolkata",
-        })
-      );
+    if (forecastData.value * deviceData.energy <= deviceData.CI * deviceData.energy) {
       setBestTime(
         new Date(forecastData.timestamp).toLocaleString(undefined, {
           timeZone: "Asia/Kolkata",
