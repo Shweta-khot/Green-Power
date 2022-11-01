@@ -50,7 +50,7 @@ const ActualForecast = () => {
   const [region, setRegion] = useState("eastus");
   const [start, setStart] = useState(new Date().getTime() - 6 * 60 * 60 * 1000);
   const [end, setEnd] = useState(new Date());
-  const [bestEmissionData, setBestEmissionData] = useState({});
+  const [bestEmissionData, setBestEmissionData] = useState();
 
   console.log(new Date().toUTCString());
 
@@ -108,9 +108,11 @@ const ActualForecast = () => {
             </Typography>
             <HistoricalData chartData={chartData} />
           </ChartContainer>
-          <ChartContainer>
-            <BestEmissionSection bestEmissionData={bestEmissionData} />
-          </ChartContainer>
+          {bestEmissionData && (
+            <ChartContainer>
+              <BestEmissionSection bestEmissionData={bestEmissionData} />
+            </ChartContainer>
+          )}
         </Grid>
       </Grid>
     </Box>
