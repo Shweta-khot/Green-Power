@@ -46,7 +46,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const ActualForecast = () => {
   // local state
   const [chartData, setChartData] = useState([]);
-  const [location, setLocation] = useState("eastus");
+  const [region, setRegion] = useState("eastus");
   const [start, setStart] = useState(new Date().getTime() - 6 * 60 * 60 * 1000);
   const [end, setEnd] = useState(new Date());
 
@@ -58,11 +58,11 @@ const ActualForecast = () => {
 
     axios
       .get(
-        `https://carbon-aware-api.azurewebsites.net/emissions/bylocations?location=${location}&time=${newStartTime}&toTime=${newEndTime}`
+        `https://carbon-aware-api.azurewebsites.net/emissions/bylocations?location=${region}&time=${newStartTime}&toTime=${newEndTime}`
       )
       .then((res) => setChartData(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [region, start, end]);
 
   return (
     <Box>
@@ -70,7 +70,8 @@ const ActualForecast = () => {
         <Grid xs={12}>
           <Item>
             <Filters
-              region={location}
+              region={region}
+              regionSetter={setRegion}
               startTime={start}
               startSetter={setStart}
               endTime={end}

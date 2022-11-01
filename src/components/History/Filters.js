@@ -7,6 +7,7 @@ import FormDate from "../Common/Form/FormDate";
 
 import dataService from "../../_shared/services/data.service";
 
+const regions = ["eastus", "eastus2", "southcentralus", "westus2", "westus3"];
 const useStyles = makeStyles({
   options: {
     "&:hover": {
@@ -22,6 +23,7 @@ const useStyles = makeStyles({
 
 export default function Filters({
   region,
+  regionSetter,
   startTime,
   endTime,
   startSetter,
@@ -33,8 +35,15 @@ export default function Filters({
     <div className={classes.scroll}>
       <Grid container spacing={2} alignContent="center" textAlign="center">
         <Grid xs={12} md={4} marginBottom={2}>
-          <FormSelect label="Region" menuId="region_id">
-            <MenuItem value={0}>{region}</MenuItem>
+        <FormSelect
+            label="Region"
+            menuId="region_id"
+            value={region}
+            setter={regionSetter}
+          >
+            {regions.map((region, index) => {
+              return <MenuItem value={region}>{region}</MenuItem>;
+            })}
           </FormSelect>
         </Grid>
         <Grid xs={12} md={4} marginBottom={2}>
