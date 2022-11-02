@@ -8,6 +8,7 @@
 // Add third-party dependencies.
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import { styled } from "@mui/styles";
+import leafImage from "../../assets/images/leaf.png";
 
 // Add Local Dependencies
 
@@ -36,10 +37,39 @@ const Dashboard = () => {
   return (
     <Box>
       <Grid>
-        <Grid container >
+        <Grid container>
           <Grid item xs={12}>
             <Item>
-              <Typography variant="h1">Carbon Bell</Typography>
+              <img src={leafImage} alt="car" width="100" height="100" />
+              <Typography variant="h1">
+                The purpose of Green Power is to lessen carbon emissions and
+                practise sustainability.This application assists in selecting
+                the best time to charge the deivce based on the time and
+                location.
+                <br />
+                <br />
+                <Typography
+                  variant="h6"
+                  sx={{ textAlign: "right", marginRight: "75px" }}
+                >
+                  Authors
+                </Typography>
+                <Typography textAlign={"right"}>
+                  Arunoday Chakroborty - BCG GAMMA
+                </Typography>
+                <Typography textAlign={"right"}>
+                  Chaitra Bhat - BCG GAMMA
+                </Typography>
+                <Typography textAlign={"right"}>
+                  Gokulaselvan A - BCG GAMMA
+                </Typography>
+                <Typography textAlign={"right"}>
+                  Pardeep Pardeep - BCG GAMMA{" "}
+                </Typography>
+                <Typography textAlign={"right"}>
+                  Shweta Khot - BCG GAMMA
+                </Typography>
+              </Typography>
             </Item>
           </Grid>
         </Grid>
