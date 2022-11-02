@@ -80,7 +80,7 @@ const Header = () => {
                 textDecoration: "none",
               }}
             >
-              Carbon Bell
+              Green Power
             </Typography>
             <Divider
               orientation="vertical"
