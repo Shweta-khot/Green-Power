@@ -11,7 +11,6 @@ import { Box, Button, Grid, Paper, Typography, styled } from "@mui/material";
 import axios from "axios";
 
 import Filters from "./Filters";
-import grass from "../../assets/images/grass.jpg";
 
 // Add Local Dependencies
 
