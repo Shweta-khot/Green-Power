@@ -10,7 +10,7 @@ import dataService from "../../_shared/services/data.service";
 const devices = [
   { name: "Device1 0.7KWH", energy: "0.7", CI: "800" },
   { name: "Device2 0.86KWH", energy: "0.85", CI: "700" },
-  {name: "Device3 1KWH", energy: "1", CI: "500"},
+  { name: "Device3 1KWH", energy: "1", CI: "500" },
 ];
 const regions = ["eastus", "eastus2", "southcentralus", "westus2", "westus3"];
 
@@ -41,7 +41,7 @@ export default function Filters({
   return (
     <div className={classes.scroll}>
       <Grid container spacing={2} alignContent="center" textAlign="center">
-      <Grid xs={12} md={3} marginBottom={2}>
+        <Grid xs={12} md={3} marginBottom={2}>
           <h1>Time</h1>
           <h3>{start.toLocaleString()}</h3>
         </Grid>
