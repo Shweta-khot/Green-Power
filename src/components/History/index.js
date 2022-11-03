@@ -110,7 +110,10 @@ const ActualForecast = () => {
           </ChartContainer>
           {bestEmissionData && (
             <ChartContainer>
-              <BestEmissionSection bestEmissionData={bestEmissionData} />
+              <BestEmissionSection
+                bestEmissionData={bestEmissionData}
+                region={region}
+              />
             </ChartContainer>
           )}
         </Grid>

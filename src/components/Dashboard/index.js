@@ -64,7 +64,7 @@ const Dashboard = () => {
                   Gokulaselvan A - BCG GAMMA
                 </Typography>
                 <Typography textAlign={"right"}>
-                  Pardeep Pardeep - BCG GAMMA{" "}
+                  Pardeep - BCG GAMMA{" "}
                 </Typography>
                 <Typography textAlign={"right"}>
                   Shweta Khot - BCG GAMMA
